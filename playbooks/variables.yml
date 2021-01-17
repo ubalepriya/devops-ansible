@@ -1,6 +1,6 @@
 ---
 - hosts: qa
-  vars_files
+  vars_files:
     - variables.yml
   vars:
     variable1: "Playbook Value"
