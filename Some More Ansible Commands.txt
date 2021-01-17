@@ -1,0 +1,227 @@
+priyanka@Azure:~/devops-ansible$ ansible all -a "whoami"
+[WARNING]: Platform linux on host 54.172.182.186 is using the discovered Python interpreter at /usr/bin/python, but future installation of another Python interpreter could
+change the meaning of that path. See https://docs.ansible.com/ansible/2.10/reference_appendices/interpreter_discovery.html for more information.
+54.172.182.186 | CHANGED | rc=0 >>
+ec2-user
+[WARNING]: Platform linux on host 18.206.99.201 is using the discovered Python interpreter at /usr/bin/python, but future installation of another Python interpreter could
+change the meaning of that path. See https://docs.ansible.com/ansible/2.10/reference_appendices/interpreter_discovery.html for more information.
+18.206.99.201 | CHANGED | rc=0 >>
+ec2-user
+[WARNING]: Platform linux on host 54.172.179.149 is using the discovered Python interpreter at /usr/bin/python, but future installation of another Python interpreter could
+change the meaning of that path. See https://docs.ansible.com/ansible/2.10/reference_appendices/interpreter_discovery.html for more information.
+54.172.179.149 | CHANGED | rc=0 >>
+ec2-user
+priyanka@Azure:~/devops-ansible$ ssh -vvv -i ./aws/aws_keys/default-ec2.pem ec2-user@18.206.99.201
+OpenSSH_7.9p1 Debian-10+deb10u2, OpenSSL 1.1.1d  10 Sep 2019
+debug1: Reading configuration data /etc/ssh/ssh_config
+debug1: /etc/ssh/ssh_config line 19: Applying options for *
+debug2: resolve_canonicalize: hostname 18.206.99.201 is address
+debug2: ssh_connect_direct
+debug1: Connecting to 18.206.99.201 [18.206.99.201] port 22.
+debug1: Connection established.
+debug1: identity file ./aws/aws_keys/default-ec2.pem type -1
+debug1: identity file ./aws/aws_keys/default-ec2.pem-cert type -1
+debug1: Local version string SSH-2.0-OpenSSH_7.9p1 Debian-10+deb10u2
+debug1: Remote protocol version 2.0, remote software version OpenSSH_7.4
+debug1: match: OpenSSH_7.4 pat OpenSSH_7.0*,OpenSSH_7.1*,OpenSSH_7.2*,OpenSSH_7.3*,OpenSSH_7.4*,OpenSSH_7.5*,OpenSSH_7.6*,OpenSSH_7.7* compat 0x04000002
+debug2: fd 3 setting O_NONBLOCK
+debug1: Authenticating to 18.206.99.201:22 as 'ec2-user'
+debug3: hostkeys_foreach: reading file "/home/priyanka/.ssh/known_hosts"
+debug3: record_hostkey: found key type ECDSA in file /home/priyanka/.ssh/known_hosts:2
+debug3: load_hostkeys: loaded 1 keys from 18.206.99.201
+debug3: order_hostkeyalgs: prefer hostkeyalgs: ecdsa-sha2-nistp256-cert-v01@openssh.com,ecdsa-sha2-nistp384-cert-v01@openssh.com,ecdsa-sha2-nistp521-cert-v01@openssh.com,ecdsa-sha2-nistp256,ecdsa-sha2-nistp384,ecdsa-sha2-nistp521
+debug3: send packet: type 20
+debug1: SSH2_MSG_KEXINIT sent
+debug3: receive packet: type 20
+debug1: SSH2_MSG_KEXINIT received
+debug2: local client KEXINIT proposal
+debug2: KEX algorithms: curve25519-sha256,curve25519-sha256@libssh.org,ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group-exchange-sha256,diffie-hellman-group16-sha512,diffie-hellman-group18-sha512,diffie-hellman-group14-sha256,diffie-hellman-group14-sha1,ext-info-c
+
+debug2: host key algorithms: ecdsa-sha2-nistp256-cert-v01@openssh.com,ecdsa-sha2-nistp384-cert-v01@openssh.com,ecdsa-sha2-nistp521-cert-v01@openssh.com,ecdsa-sha2-nistp256,ecdsa-sha2-nistp384,ecdsa-sha2-nistp521,ssh-ed25519-cert-v01@openssh.com,rsa-sha2-512-cert-v01@openssh.com,rsa-sha2-256-cert-v01@openssh.com,ssh-rsa-cert-v01@openssh.com,ssh-ed25519,rsa-sha2-512,rsa-sha2-256,ssh-rsa
+debug2: ciphers ctos: chacha20-poly1305@openssh.com,aes128-ctr,aes192-ctr,aes256-ctr,aes128-gcm@openssh.com,aes256-gcm@openssh.com
+debug2: ciphers stoc: chacha20-poly1305@openssh.com,aes128-ctr,aes192-ctr,aes256-ctr,aes128-gcm@openssh.com,aes256-gcm@openssh.com
+debug2: MACs ctos: umac-64-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha1-etm@openssh.com,umac-64@openssh.com,umac-128@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha1
+debug2: MACs stoc: umac-64-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha1-etm@openssh.com,umac-64@openssh.com,umac-128@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha1
+debug2: compression ctos: none,zlib@openssh.com,zlib
+debug2: compression stoc: none,zlib@openssh.com,zlib
+debug2: languages ctos:
+debug2: languages stoc:
+debug2: first_kex_follows 0
+debug2: reserved 0
+debug2: peer server KEXINIT proposal
+debug2: KEX algorithms: curve25519-sha256,curve25519-sha256@libssh.org,ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group-exchange-sha256,diffie-hellman-group16-sha512,diffie-hellman-group18-sha512,diffie-hellman-group-exchange-sha1,diffie-hellman-group14-sha256,diffie-hellman-group14-sha1,diffie-hellman-group1-sha1
+debug2: host key algorithms: ssh-rsa,rsa-sha2-512,rsa-sha2-256,ecdsa-sha2-nistp256,ssh-ed25519
+debug2: ciphers ctos: chacha20-poly1305@openssh.com,aes128-ctr,aes192-ctr,aes256-ctr,aes128-gcm@openssh.com,aes256-gcm@openssh.com,aes128-cbc,aes192-cbc,aes256-cbc,blowfish-cbc,cast128-cbc,3des-cbc
+debug2: ciphers stoc: chacha20-poly1305@openssh.com,aes128-ctr,aes192-ctr,aes256-ctr,aes128-gcm@openssh.com,aes256-gcm@openssh.com,aes128-cbc,aes192-cbc,aes256-cbc,blowfish-cbc,cast128-cbc,3des-cbc
+debug2: MACs ctos: umac-64-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha1-etm@openssh.com,umac-64@openssh.com,umac-128@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha1
+debug2: MACs stoc: umac-64-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha1-etm@openssh.com,umac-64@openssh.com,umac-128@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha1
+debug2: compression ctos: none,zlib@openssh.com
+debug2: compression stoc: none,zlib@openssh.com
+debug2: languages ctos:
+debug2: languages stoc:
+debug2: first_kex_follows 0
+debug2: reserved 0
+debug1: kex: algorithm: curve25519-sha256
+debug1: kex: host key algorithm: ecdsa-sha2-nistp256
+debug1: kex: server->client cipher: chacha20-poly1305@openssh.com MAC: <implicit> compression: none
+debug1: kex: client->server cipher: chacha20-poly1305@openssh.com MAC: <implicit> compression: none
+debug3: send packet: type 30
+debug1: expecting SSH2_MSG_KEX_ECDH_REPLY
+debug3: receive packet: type 31
+debug1: Server host key: ecdsa-sha2-nistp256 SHA256:XkXfzenYstmA3FCPyA6k7vRrapFhJ1P3yuULo7QTD98
+debug3: hostkeys_foreach: reading file "/home/priyanka/.ssh/known_hosts"
+debug3: record_hostkey: found key type ECDSA in file /home/priyanka/.ssh/known_hosts:2
+debug3: load_hostkeys: loaded 1 keys from 18.206.99.201
+debug1: Host '18.206.99.201' is known and matches the ECDSA host key.
+debug1: Found key in /home/priyanka/.ssh/known_hosts:2
+debug3: send packet: type 21
+debug2: set_newkeys: mode 1
+debug1: rekey after 134217728 blocks
+debug1: SSH2_MSG_NEWKEYS sent
+debug1: expecting SSH2_MSG_NEWKEYS
+debug3: receive packet: type 21
+debug1: SSH2_MSG_NEWKEYS received
+debug2: set_newkeys: mode 0
+debug1: rekey after 134217728 blocks
+debug1: Will attempt key: ./aws/aws_keys/default-ec2.pem  explicit
+debug2: pubkey_prepare: done
+debug3: send packet: type 5
+debug3: receive packet: type 7
+debug1: SSH2_MSG_EXT_INFO received
+debug1: kex_input_ext_info: server-sig-algs=<rsa-sha2-256,rsa-sha2-512>
+debug3: receive packet: type 6
+debug2: service_accept: ssh-userauth
+debug1: SSH2_MSG_SERVICE_ACCEPT received
+debug3: send packet: type 50
+debug3: receive packet: type 51
+debug1: Authentications that can continue: publickey,gssapi-keyex,gssapi-with-mic
+debug3: start over, passed a different list publickey,gssapi-keyex,gssapi-with-mic
+debug3: preferred gssapi-keyex,gssapi-with-mic,publickey,keyboard-interactive,password
+debug3: authmethod_lookup gssapi-keyex
+debug3: remaining preferred: gssapi-with-mic,publickey,keyboard-interactive,password
+debug3: authmethod_is_enabled gssapi-keyex
+debug1: Next authentication method: gssapi-keyex
+debug1: No valid Key exchange context
+debug2: we did not send a packet, disable method
+debug3: authmethod_lookup gssapi-with-mic
+debug3: remaining preferred: publickey,keyboard-interactive,password
+debug3: authmethod_is_enabled gssapi-with-mic
+debug1: Next authentication method: gssapi-with-mic
+debug1: Unspecified GSS failure.  Minor code may provide more information
+No Kerberos credentials available (default cache: FILE:/tmp/krb5cc_9527)
+
+
+debug1: Unspecified GSS failure.  Minor code may provide more information
+No Kerberos credentials available (default cache: FILE:/tmp/krb5cc_9527)
+
+
+debug2: we did not send a packet, disable method
+debug3: authmethod_lookup publickey
+debug3: remaining preferred: keyboard-interactive,password
+debug3: authmethod_is_enabled publickey
+debug1: Next authentication method: publickey
+debug1: Trying private key: ./aws/aws_keys/default-ec2.pem
+debug3: sign_and_send_pubkey: RSA SHA256:ZX48SxBnCOKUXHmf9E9Ofr7AmvL7IZqGa+2rlqRYv58
+debug3: sign_and_send_pubkey: signing using rsa-sha2-512
+debug3: send packet: type 50
+debug2: we sent a publickey packet, wait for reply
+debug3: receive packet: type 52
+debug1: Authentication succeeded (publickey).
+Authenticated to 18.206.99.201 ([18.206.99.201]:22).
+debug1: channel 0: new [client-session]
+debug3: ssh_session2_open: channel_new: 0
+debug2: channel 0: send open
+debug3: send packet: type 90
+debug1: Requesting no-more-sessions@openssh.com
+debug3: send packet: type 80
+debug1: Entering interactive session.
+debug1: pledge: network
+debug3: receive packet: type 80
+debug1: client_input_global_request: rtype hostkeys-00@openssh.com want_reply 0
+debug3: receive packet: type 91
+debug2: channel_input_open_confirmation: channel 0: callback start
+debug2: fd 3 setting TCP_NODELAY
+debug3: ssh_packet_set_tos: set IP_TOS 0x10
+debug2: client_session2_setup: id 0
+debug2: channel 0: request pty-req confirm 1
+debug3: send packet: type 98
+debug1: Sending environment.
+debug3: Ignored env ACC_TERM_ID
+debug3: Ignored env POWERSHELL_UPDATECHECK
+debug3: Ignored env ACC_STORAGE_PROFILE
+debug3: Ignored env PWD
+debug3: Ignored env LOGNAME
+debug3: Ignored env POWERSHELL_DISTRIBUTION_CHANNEL
+debug3: Ignored env HOME
+debug1: Sending env LANG = en_US.utf8
+debug2: channel 0: request env confirm 0
+debug3: send packet: type 98
+debug3: Ignored env LS_COLORS
+debug3: Ignored env GOROOT
+debug3: Ignored env ACC_LOCATION
+debug3: Ignored env GEM_HOME
+debug3: Ignored env ACC_PUID
+debug3: Ignored env TERM
+debug3: Ignored env USER
+debug3: Ignored env ACC_CLOUD
+debug3: Ignored env SHLVL
+debug3: Ignored env AZURE_ACCESS_TOKEN_FILE
+debug3: Ignored env AZURE_HTTP_USER_AGENT
+debug3: Ignored env BUNDLE_PATH
+debug3: Ignored env ACC_VERSION
+debug3: Ignored env PATH
+debug3: Ignored env MSI_ENDPOINT
+debug3: Ignored env ACC_TID
+debug3: Ignored env ACC_OID
+debug3: Ignored env _
+debug3: Ignored env OLDPWD
+debug2: channel 0: request shell confirm 1
+debug3: send packet: type 98
+debug2: channel_input_open_confirmation: channel 0: callback done
+debug2: channel 0: open confirm rwindow 0 rmax 32768
+debug3: receive packet: type 99
+debug2: channel_input_status_confirm: type 99 id 0
+debug2: PTY allocation request accepted on channel 0
+debug2: channel 0: rcvd adjust 2097152
+debug3: receive packet: type 99
+debug2: channel_input_status_confirm: type 99 id 0
+debug2: shell request accepted on channel 0
+Last login: Sun Jan 17 07:29:15 2021 from 13.71.38.212
+
+       __|  __|_  )
+       _|  (     /   Amazon Linux 2 AMI
+      ___|\___|___|
+
+https://aws.amazon.com/amazon-linux-2/
+[ec2-user@ip-172-31-42-125 ~]$ ls
+[ec2-user@ip-172-31-42-125 ~]$ mkdir new
+[ec2-user@ip-172-31-42-125 ~]$ ls
+new
+debug1: Exit status 127
+priyanka@Azure:~/devops-ansible$ ansible all -a "uname"
+[WARNING]: Platform linux on host 18.206.99.201 is using the discovered Python interpreter at /usr/bin/python, but future installation of another Python interpreter could
+change the meaning of that path. See https://docs.ansible.com/ansible/2.10/reference_appendices/interpreter_discovery.html for more information.
+18.206.99.201 | CHANGED | rc=0 >>
+Linux
+[WARNING]: Platform linux on host 54.172.182.186 is using the discovered Python interpreter at /usr/bin/python, but future installation of another Python interpreter could
+change the meaning of that path. See https://docs.ansible.com/ansible/2.10/reference_appendices/interpreter_discovery.html for more information.
+54.172.182.186 | CHANGED | rc=0 >>
+Linux
+[WARNING]: Platform linux on host 54.172.179.149 is using the discovered Python interpreter at /usr/bin/python, but future installation of another Python interpreter could
+change the meaning of that path. See https://docs.ansible.com/ansible/2.10/reference_appendices/interpreter_discovery.html for more information.
+54.172.179.149 | CHANGED | rc=0 >>
+Linux
+priyanka@Azure:~/devops-ansible$ ansible all -a "uname -a"
+54.172.179.149 | CHANGED | rc=0 >>
+Linux ip-172-31-37-42.ec2.internal 4.14.209-160.339.amzn2.x86_64 #1 SMP Wed Dec 16 22:44:04 UTC 2020 x86_64 x86_64 x86_64 GNU/Linux
+54.172.182.186 | CHANGED | rc=0 >>
+Linux ip-172-31-45-209.ec2.internal 4.14.209-160.339.amzn2.x86_64 #1 SMP Wed Dec 16 22:44:04 UTC 2020 x86_64 x86_64 x86_64 GNU/Linux
+18.206.99.201 | CHANGED | rc=0 >>
+Linux ip-172-31-42-125.ec2.internal 4.14.209-160.339.amzn2.x86_64 #1 SMP Wed Dec 16 22:44:04 UTC 2020 x86_64 x86_64 x86_64 GNU/Linux
+priyanka@Azure:~/devops-ansible$ ansible all -a "pwd"
+54.172.179.149 | CHANGED | rc=0 >>
+/home/ec2-user
+54.172.182.186 | CHANGED | rc=0 >>
+/home/ec2-user
+18.206.99.201 | CHANGED | rc=0 >>
+/home/ec2-user
