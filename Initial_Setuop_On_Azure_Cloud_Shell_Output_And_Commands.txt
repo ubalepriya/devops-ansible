@@ -1,0 +1,107 @@
+priyanka@Azure:~$ ls
+clouddrive
+priyanka@Azure:~$ git clone https://github.com/ubalepriya/devops-ansible.git
+Cloning into 'devops-ansible'...
+remote: Enumerating objects: 25, done.
+remote: Counting objects: 100% (25/25), done.
+remote: Compressing objects: 100% (19/19), done.
+remote: Total 25 (delta 2), reused 21 (delta 2), pack-reused 0
+Unpacking objects: 100% (25/25), done.
+priyanka@Azure:~$ cd devops-ansible/
+priyanka@Azure:~/devops-ansible$ ls
+ansible.cfg  ansible_hosts  backup  readme.md
+priyanka@Azure:~/devops-ansible$ ansible --version
+ansible 2.10.2
+  config file = /home/priyanka/devops-ansible/ansible.cfg
+  configured module search path = ['/home/priyanka/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
+  ansible python module location = /opt/ansible/lib/python3.7/site-packages/ansible
+  executable location = /opt/ansible/bin/ansible
+  python version = 3.7.3 (default, Jul 25 2020, 13:03:44) [GCC 8.3.0]
+priyanka@Azure:~/devops-ansible$ ansible -m ping all
+18.206.99.201 | UNREACHABLE! => {
+    "changed": false,
+    "msg": "Failed to connect to the host via ssh: Warning: Permanently added '18.206.99.201' (ECDSA) to the list of known hosts.\r\nno such identity: /home/priyanka/terraform/aws/aws_keys/default-ec2.pem: No such file or directory\r\nec2-user@18.206.99.201: Permission denied (publickey,gssapi-keyex,gssapi-with-mic).",
+    "unreachable": true
+}
+54.172.179.149 | UNREACHABLE! => {
+    "changed": false,
+    "msg": "Failed to connect to the host via ssh: Could not create directory '/home/priyanka/.ssh'.\r\nWarning: Permanently added '54.172.179.149' (ECDSA) to the list of known hosts.\r\nno such identity: /home/priyanka/terraform/aws/aws_keys/default-ec2.pem: No such file or directory\r\nec2-user@54.172.179.149: Permission denied (publickey,gssapi-keyex,gssapi-with-mic).",
+    "unreachable": true
+}
+54.172.182.186 | UNREACHABLE! => {
+    "changed": false,
+    "msg": "Failed to connect to the host via ssh: Could not create directory '/home/priyanka/.ssh'.\r\nWarning: Permanently added '54.172.182.186' (ECDSA) to the list of known hosts.\r\nno such identity: /home/priyanka/terraform/aws/aws_keys/default-ec2.pem: No such file or directory\r\nec2-user@54.172.182.186: Permission denied (publickey,gssapi-keyex,gssapi-with-mic).",
+    "unreachable": true
+}
+priyanka@Azure:~/devops-ansible$ ls
+ansible.cfg  ansible_hosts  backup  readme.md
+priyanka@Azure:~/devops-ansible$ cd ..
+priyanka@Azure:~$ rm -rf devops-ansible
+priyanka@Azure:~$ git clone "https://github.com/ubalepriya/devops-ansible.git"
+Cloning into 'devops-ansible'...
+remote: Enumerating objects: 31, done.
+remote: Counting objects: 100% (31/31), done.
+remote: Compressing objects: 100% (22/22), done.
+remote: Total 31 (delta 3), reused 27 (delta 3), pack-reused 0
+Unpacking objects: 100% (31/31), done.
+priyanka@Azure:~$ ansible -m ping all
+[WARNING]: No inventory was parsed, only implicit localhost is available
+[WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does not match 'all'
+priyanka@Azure:~$ cd devops-ansible/
+priyanka@Azure:~/devops-ansible$ ls
+ansible.cfg  ansible_hosts  aws  backup  readme.md
+priyanka@Azure:~/devops-ansible$ ansible -m ping all
+54.172.182.186 | UNREACHABLE! => {
+    "changed": false,
+    "msg": "Failed to connect to the host via ssh: @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\r\n@         WARNING: UNPROTECTED PRIVATE KEY FILE!@\r\n@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\r\nPermissions 0644 for '/home/priyanka/devops-ansible/aws/aws_keys/default-ec2.pem' are too open.\r\nIt is required that your private key files are NOT accessible by others.\r\nThis private key will be ignored.\r\nLoad key \"/home/priyanka/devops-ansible/aws/aws_keys/default-ec2.pem\": bad permissions\r\nec2-user@54.172.182.186: Permission denied (publickey,gssapi-keyex,gssapi-with-mic).",
+    "unreachable": true
+}
+54.172.179.149 | UNREACHABLE! => {
+    "changed": false,
+    "msg": "Failed to connect to the host via ssh: @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\r\n@         WARNING: UNPROTECTED PRIVATE KEY FILE!@\r\n@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\r\nPermissions 0644 for '/home/priyanka/devops-ansible/aws/aws_keys/default-ec2.pem' are too open.\r\nIt is required that your private key files are NOT accessible by others.\r\nThis private key will be ignored.\r\nLoad key \"/home/priyanka/devops-ansible/aws/aws_keys/default-ec2.pem\": bad permissions\r\nec2-user@54.172.179.149: Permission denied (publickey,gssapi-keyex,gssapi-with-mic).",
+    "unreachable": true
+}
+18.206.99.201 | UNREACHABLE! => {
+    "changed": false,
+    "msg": "Failed to connect to the host via ssh: @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\r\n@         WARNING: UNPROTECTED PRIVATE KEY FILE!@\r\n@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\r\nPermissions 0644 for '/home/priyanka/devops-ansible/aws/aws_keys/default-ec2.pem' are too open.\r\nIt is required that your private key files are NOT accessible by others.\r\nThis private key will be ignored.\r\nLoad key \"/home/priyanka/devops-ansible/aws/aws_keys/default-ec2.pem\": bad permissions\r\nec2-user@18.206.99.201: Permission denied (publickey,gssapi-keyex,gssapi-with-mic).",
+    "unreachable": true
+}
+priyanka@Azure:~/devops-ansible$ pwd
+/home/priyanka/devops-ansible
+priyanka@Azure:~/devops-ansible$ ls
+ansible.cfg  ansible_hosts  aws  backup  readme.md
+priyanka@Azure:~/devops-ansible$ cd aws
+priyanka@Azure:~/devops-ansible/aws$ cd aws_keys/
+priyanka@Azure:~/devops-ansible/aws/aws_keys$ ls
+default-ec2.pem
+priyanka@Azure:~/devops-ansible/aws/aws_keys$ chmod 400 default-ec2.pem
+priyanka@Azure:~/devops-ansible/aws/aws_keys$ cd ..
+priyanka@Azure:~/devops-ansible/aws$ cd ..
+priyanka@Azure:~/devops-ansible$ ansible -m ping all
+[WARNING]: Platform linux on host 54.172.182.186 is using the discovered Python interpreter at /usr/bin/python, but future installation of another Python interpreter could
+change the meaning of that path. See https://docs.ansible.com/ansible/2.10/reference_appendices/interpreter_discovery.html for more information.
+54.172.182.186 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+[WARNING]: Platform linux on host 18.206.99.201 is using the discovered Python interpreter at /usr/bin/python, but future installation of another Python interpreter could
+change the meaning of that path. See https://docs.ansible.com/ansible/2.10/reference_appendices/interpreter_discovery.html for more information.
+18.206.99.201 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+[WARNING]: Platform linux on host 54.172.179.149 is using the discovered Python interpreter at /usr/bin/python, but future installation of another Python interpreter could
+change the meaning of that path. See https://docs.ansible.com/ansible/2.10/reference_appendices/interpreter_discovery.html for more information.
+54.172.179.149 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python"
+    },
+    "changed": false,
+    "ping": "pong"
+}
