@@ -1,0 +1,9 @@
+---
+- hosts: qa
+  vars_files
+    - variables.yml
+  vars:
+    variable1: "Playbook Value"
+  tasks:
+    - name: Print Variables Value
+      debug: msg="Value is {{variable1}}"  
