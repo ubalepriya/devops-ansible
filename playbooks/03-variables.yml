@@ -4,4 +4,4 @@
     variable1: "Playbook Value"
   tasks:
     - name: Print Varibales Value
-    - debug: msg="Value is {{variable1}}"  
+      debug: msg="Value is {{variable1}}"  
