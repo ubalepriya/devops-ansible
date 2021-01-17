@@ -1,0 +1,7 @@
+---
+- hosts: qa
+  vars:
+    variable1:"Playbook Value"
+  tasks:
+    - name: Print Varibales Value
+    - debug: msg="Value is {{variable1}}"  
