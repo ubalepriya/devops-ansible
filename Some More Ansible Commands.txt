@@ -225,3 +225,52 @@ priyanka@Azure:~/devops-ansible$ ansible all -a "pwd"
 /home/ec2-user
 18.206.99.201 | CHANGED | rc=0 >>
 /home/ec2-user
+priyanka@Azure:~/devops-ansible$ ansible all -a "python --version"
+54.172.179.149 | CHANGED | rc=0 >>
+Python 2.7.18
+54.172.182.186 | CHANGED | rc=0 >>
+Python 2.7.18
+18.206.99.201 | CHANGED | rc=0 >>
+Python 2.7.18
+priyanka@Azure:~/devops-ansible$ ansible dev -a "python --version"
+dev2 | CHANGED | rc=0 >>
+Python 2.7.18
+dev1 | CHANGED | rc=0 >>
+Python 2.7.18
+priyanka@Azure:~/devops-ansible$ ansible qa -a "python --version"
+qa1 | CHANGED | rc=0 >>
+Python 2.7.18
+priyanka@Azure:~/devops-ansible$ ansible first -a "python --version"
+qa1 | CHANGED | rc=0 >>
+Python 2.7.18
+dev1 | CHANGED | rc=0 >>
+Python 2.7.18
+priyanka@Azure:~/devops-ansible$ ansible grupofgroups -a "python --version"
+dev1 | CHANGED | rc=0 >>
+Python 2.7.18
+qa1 | CHANGED | rc=0 >>
+Python 2.7.18
+dev2 | CHANGED | rc=0 >>
+Python 2.7.18
+priyanka@Azure:~/devops-ansible$ ansible devsubsets -a "python --version"
+dev2 | CHANGED | rc=0 >>
+Python 2.7.18
+dev1 | CHANGED | rc=0 >>
+Python 2.7.18
+priyanka@Azure:~/devops-ansible$ ansible --list-hosts all
+  hosts (3):
+    qa1
+    dev1
+    dev2
+priyanka@Azure:~/devops-ansible$ ansible --list-hosts dev
+  hosts (2):
+    dev1
+    dev2
+priyanka@Azure:~/devops-ansible$ ansible --list-hosts qa
+  hosts (1):
+    qa1
+priyanka@Azure:~/devops-ansible$ ansible --list-hosts qa:dev
+  hosts (3):
+    qa1
+    dev1
+    dev2
