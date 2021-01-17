@@ -246,3 +246,64 @@ PLAY RECAP *********************************************************************
 dev1                       : ok=5    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
 dev2                       : ok=5    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
 qa1 
+priyanka@Azure:~/devops-ansible$ ansible-playbook playbooks/07-conditionals-and-loops.yml
+
+PLAY [qa] ******************************************************************************************************************************************************************
+
+TASK [Gathering Facts] *****************************************************************************************************************************************************
+ok: [qa1]
+
+TASK [debug] ***************************************************************************************************************************************************************
+ok: [qa1] => {
+    "ansible_system": "Linux"
+}
+
+TASK [debug] ***************************************************************************************************************************************************************
+skipping: [qa1]
+
+TASK [debug] ***************************************************************************************************************************************************************
+ok: [qa1] => (item=item1) => {
+    "ansible_loop_var": "item",
+    "item": "item1"
+}
+ok: [qa1] => (item=item2) => {
+    "ansible_loop_var": "item",
+    "item": "item2"
+}
+ok: [qa1] => (item=item3) => {
+    "ansible_loop_var": "item",
+    "item": "item3"
+}
+ok: [qa1] => (item=item4) => {
+    "ansible_loop_var": "item",
+    "item": "item4"
+}
+
+TASK [debug] ***************************************************************************************************************************************************************
+ok: [qa1] => (item={'name': 'Ranga', 'country': 'India'}) => {
+    "ansible_loop_var": "item",
+    "item": {
+        "country": "India",
+        "name": "Ranga"
+    },
+    "item.name": "Ranga"
+}
+ok: [qa1] => (item={'name': 'Jane', 'country': 'US'}) => {
+    "ansible_loop_var": "item",
+    "item": {
+        "country": "US",
+        "name": "Jane"
+    },
+    "item.name": "Jane"
+}
+ok: [qa1] => (item={'name': 'Doe', 'country': 'Netherlands'}) => {
+    "ansible_loop_var": "item",
+    "item": {
+        "country": "Netherlands",
+        "name": "Doe"
+    },
+    "item.name": "Doe"
+}
+
+PLAY RECAP *****************************************************************************************************************************************************************
+qa1           
